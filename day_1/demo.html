@@ -1,0 +1,104 @@
+<head></head>
+<script>
+    // var tuoi = 8
+    // var ten = "mipmopp"
+    // var smart = false
+    // document.write("kimochi\n");
+    // document.write(ten);
+    // document.writeln(smart);
+
+
+    var IQ = 0;
+    // IQ = window.prompt('Enter MipMop\'s IQ'); //input (return a string)
+    // var IQ = parseInt(window.prompt('Enter MipMop\'s IQ')) || 0; //still input but int
+    document.write(`IQ mipmop = ${IQ === "" ? "N/A" : IQ}`); //ternary operator
+    if (IQ >= 70) {
+        document.write(" sai r! <br>")
+    } else {
+        document.write(" đúng r! <br>")
+    }
+    // IQmipmop = "mipmop IQ = " + IQ
+    // document.write(IQmipmop)  //output
+
+    for (var i = 0; i < 10; i++) {
+        // document.write(`${i}. MipMop IQ: `, IQ + i, ` <br>`) 
+        document.write(i + ". MipMop IQ: " + (IQ + i) + " <br>");
+    }
+
+    // object (like dimension of array)
+    var sv = {
+        ten: "mipmop",
+        tuoi: 19,
+        sinhnam: 2000, //wrong
+        smart: false,
+        achivement: {
+            subject: "A",
+            grade: "F-",
+            point: -100,
+        },
+        gioitinh: "third",
+    }
+    // read object
+    document.write("object: ", sv.ten + " " + sv.achivement.point + "<br>")
+
+    // function (1 la input, 2 la nhap vao)
+    var tinh_tuoi = function (tuoi) {
+        // var nam_sinh = parseInt(window.prompt('nhap so tuoi sv hientai: ')) || 0
+        if (tuoi === 0) { sv.sinhnam = "...." }
+        else { sv.sinhnam = 2024 - tuoi }
+
+        document.write(`${sv.ten} sinh nam: ${sv.sinhnam} <br>`)
+        return tuoi
+    }
+    document.write("1. sinh nam (wrong) " + sv.sinhnam + "<br>")
+    // call function
+    tinh_tuoi(sv.tuoi)
+    document.write("2. sinh nam (correct) " + sv.sinhnam + "<br>")
+    document.write("tuoi " + tinh_tuoi(sv.tuoi) + "<br>")
+    document.write(sv.tuoi + "<br>")
+    sv.tuoi = 20 //test
+    document.write(sv.tuoi, "<br>")
+
+    // array
+    var a = ["lmao", "bruh", "lol", 123, true]
+    document.write(a.length, "<br>")
+    // them 1 phantu vao cuoi
+    a.push("hihi")
+    document.write(a, "<br>")
+    // xoa 1 phantu o cuoi
+    a.pop()
+    document.write(a, "<br>")
+    // sua 1 phan tu
+    a[2] = "lozzz"
+    document.write(a, "<br>")
+
+    var s = "LMAO"
+    document.write("index 2 of LMAO is: ", s[2], "<br><br>")
+</script>
+
+
+nhập tên: <input id="lmao" value>
+<br>
+<button onclick="xin_chao()"> ok </button>
+<div id="loichao"></div>
+
+<script>
+    var xin_chao = function () {
+        var ten = document.getElementById("lmao").value
+        // var text = "xin chao " + ten
+        document.getElementById("loichao").innerHTML = "xin chao " + ten
+    }
+
+    // lenh bat dong bo (callback)
+    var thong_bao = function() {
+        document.getElementById("loichao").innerHTML += "<br>time out"
+    }
+    setTimeout(thong_bao, 3000)
+    document.getElementById("loichao").innerHTML = "Hello!"
+
+    // data storage
+    // localStorage.ten = "lmao"
+    // localStorage.hihi = "bruh"
+    // xoa di thi van truy cap duoc\
+    document.write(localStorage.ten)
+</script>
