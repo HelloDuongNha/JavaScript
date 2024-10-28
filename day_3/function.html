@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JavaScript Functions</h1>
+
+    <p>Call a function which performs a calculation and returns the result:</p>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction(p1, p2) {
+            return p1 * p2;
+        }
+
+        let result = myFunction(4, 3);
+        document.getElementById("demo").innerHTML = result;
+    </script>
+
+    <p>Using a function as a variable:</p>
+
+    <p id="demo"></p>
+
+    <script>
+        let text = "The temperature is " + toCelsius(77) + " Celsius.";
+        document.getElementById("demo").innerHTML = text;
+
+        function toCelsius(fahrenheit) {
+            return (5 / 9) * (fahrenheit - 32);
+        } 
+    </script>
+
+
+    <p id="demo1"></p>
+    <script>
+        // Create an Object:
+        const person = { firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue" };
+
+        // Display Data from the Object:
+        document.getElementById("demo1").innerHTML =
+            person.firstName + " is " + person.age + " years old.";
+
+        const person1 = { name: "Alice", age: 25 };
+
+        // Thay đổi thuộc tính bên trong object - Hợp lệ
+        person1.name = "Bob";
+        person1.age = 30;
+
+        console.log(person1); // Kết quả: { name: "Bob", age: 30 }
+
+        // Gán một object mới cho biến person - Không hợp lệ
+        person1 = { name: "Charlie", age: 35 }; // Lỗi: Assignment to constant variable
+
+        // accessing (2 ways)
+        <p id="demo2"></p>
+        // Create an Object:
+        const person2 = {
+            firstName: "John",
+            lastName: "Doe",
+            id: 5566
+        };
+
+        // way1:
+        document.getElementById("demo2").innerHTML =
+            "The last name is " + person2["lastName"];
+        // way2
+        document.getElementById("demo2").innerHTML =
+            "The last name is " + person2.lastName;
+    </script>
+
+    <!-- JavaScript Object Methods -->
+    <h2>Object Methods</h2>
+    <p>A method is a function definition stored as a property value.</p>
+    <p id="demo3"></p>
+
+    <script>
+        const person3 = {
+            firstName: "John",
+            lastName: "Doe",
+            id: 5566,
+            fullName: function () {
+                return this.firstName + " " + this.lastName;
+            }
+        };
+
+        document.getElementById("demo3").innerHTML = person3.fullName();
+    </script>
+
+    <!-- Adding a new Property -->
+    <h2>Adding a new Property</h2>
+
+    <p id="demo4"></p>
+
+    <script>
+        const person4 = {
+            firstname: "John",
+            lastname: "Doe",
+            age: 50,
+            eyecolor: "blue"
+        };
+
+        person4.nationality = "English";
+        document.getElementById("demo4").innerHTML =
+            person4.firstname + " is " + person4.nationality + ".";
+    </script>
+
+    <!-- Deleting Properties -->
+    <h2>Deleting a Property</h2>
+
+    <p id="demo5"></p>
+
+    <script>
+        const person5 = {
+            firstname: "John",
+            lastname: "Doe",
+            age: 50,
+            eyecolor: "blue"
+        };
+
+        delete person5.age;
+
+        document.getElementById("demo5").innerHTML =
+            person5.firstname + " is " + person5.age + " years old.";
+            // output: John is undefined years old.
+    </script>
+
+</body>
+
+</html>

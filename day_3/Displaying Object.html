@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JavaScript Objects</h1>
+    <p>Displaying a JavaScript object will output [object Object]:</p>
+
+    <script>
+        // How to Display JavaScript Objects?
+        <p id="demo"></p>
+        // Create an Object
+        // const person = {
+        //     name: "John",
+        //     age: 30,
+        //     city: "New York"
+        // };
+        
+
+        // Display Object
+        document.getElementById("demo").innerHTML = person;
+        // output: [object Object]
+
+
+        // Displaying Object Properties
+        <p id="demo1"></p>
+        document.getElementById("demo1").innerHTML = person.name + ", " + person.age + ", " + person.city;
+
+        // Displaying Properties in a Loop (3 WAYS)
+        // way1:
+        // Build a Text
+        <p id="demo2"></p>
+        let text = "";
+        // solving
+        for (let x in person) {
+            text += person[x] + " ";
+        };
+        // Display the Text
+        document.getElementById("demo2").innerHTML = text;
+
+        // way2:
+        // Create an Array
+        <p id="demo3"></p>
+        const myArray = Object.values(person);
+        // Display the Array
+        document.getElementById("demo3").innerHTML = myArray;
+
+        // way3:
+        <p id="demo4"></p>
+        const fruits = { Bananas: 300, Oranges: 200, Apples: 500 };
+        let text1 = "";
+        for (let [fruit, amount] of Object.entries(fruits)) {
+            text1 += fruit + ": " + amount + "<br>";
+        }
+        document.getElementById("demo4").innerHTML = text1;
+
+        // way 4:
+        <p id="demo5"></p>
+        // Display JSON
+        document.getElementById("demo5").innerHTML = JSON.stringify(person);
+    </script>
+</body>
+
+</html>

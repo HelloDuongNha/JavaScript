@@ -1,0 +1,41 @@
+Block Scope
+Before ES6 (2015), JavaScript did not have Block Scope.
+
+JavaScript had Global Scope and Function Scope.
+
+ES6 introduced the two new JavaScript keywords: let and const.
+
+These two keywords provided Block Scope in JavaScript:
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+
+        {
+            let x = 2; // x can NOT be used here
+        }
+        "Global Scope:"
+        // Variables declared with the var always have Global Scope.
+        // Variables declared with the var keyword can NOT have block scope:
+        {
+            var x = 2; // x CAN be used here
+        }
+
+        "Cannot be Redeclared"
+        // Variables defined with let can not be redeclared.
+
+        // You can not accidentally redeclare a variable declared with let.
+        let x = "John Doe";
+        let x = 0;
+
+        "Can be Redeclared"
+        // Variables defined with var can be redeclared.
+        // With var you can do this:
+        var x = "John Doe";
+        var x = 0;
+    </script>
+
+</body>
+
+</html>

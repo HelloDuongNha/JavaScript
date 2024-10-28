@@ -1,0 +1,48 @@
+Note
+The var keyword was used in all JavaScript code from 1995 to 2015.
+The let and const keywords were added to JavaScript in 2015.
+The var keyword should only be used in code written for older browsers.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Variables</h1>
+
+<p>The result of adding "5" + 2 + 3 is:</p>
+<p id="demo"></p>
+<script>
+let x = "5" + 2 + 3;
+document.getElementById("demo").innerHTML = x;
+</script>
+
+
+<p>The result of adding 2 + 3 + "5" is:</p>
+<p id="demo1"></p>
+<script>
+let y = 2 + 3 + "5";
+document.getElementById("demo1").innerHTML = y + "<br>";
+document.getElementById("demo1").innerHTML +="\"1\"-1= " + ("1"-1) + "<br>";
+document.getElementById("demo1").innerHTML +="\"1\"+1= " + "1"+1 + "<br>";
+document.getElementById("demo1").innerHTML +="1-\"1\"= " + (1-"1") + "<br>";
+</script>
+
+JavaScript Dollar Sign $
+<p>The dollar sign is treated as a letter in JavaScript names.</p>
+<p id="demo2"></p>
+<script>
+let $$$ = 2;
+let $myMoney = 5;
+document.getElementById("demo2").innerHTML = $$$ + $myMoney;
+</script>
+
+JavaScript Underscore (_)
+<p>The underscore is treated as a letter in JavaScript names.</p>
+<p id="demo"></p>
+<script>
+let _x = 2;
+let _100 = 5;
+document.getElementById("demo").innerHTML = _x + _100;
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!-- 
+Object Constructor Functions
+Sometimes we need to create many objects of the same type.
+To create an object type we use an object constructor function.
+It is considered good practice to name constructor functions with an upper-case first letter.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JavaScript Object Constructors</h1>
+
+    <p id="demo"></p>
+    <p id="demo4"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+
+    <script>
+        // Constructor Function for Person objects
+        function Person(first, last, age, eye) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+            this.nationality = "English";
+            // this.fullName = function () {
+            //     return this.firstName + " " + this.lastName
+            // };
+        }
+
+        // Create a Person object
+        const myFather = new Person("John", "Doe", 50, "blue");
+
+        // Display age
+        document.getElementById("demo").innerHTML =
+            "My father is " + myFather.age + ".";
+
+        // // Display full name
+        // document.getElementById("demo4").innerHTML =
+        //     "My father is " + myFather.fullName();
+
+        // Create another Person objects
+        const myMother = new Person("Sally", "Rally", 48, "green");
+
+        // Display age
+        document.getElementById("demo1").innerHTML =
+            "My father is " + myFather.age + ". My mother is " + myMother.age + ".";
+
+        // Display nationality
+        document.getElementById("demo2").innerHTML =
+            "My father is " + myFather.nationality + ". My mother is " + myMother.nationality;
+
+        // Adding(if didnt have) or Changing (if already had) a Property to an Object (WAY 1:)
+        myFather.nationality = "Bruh";
+
+        // Will Not Work (if didnt have)
+        Person.nationality = "English";
+
+        // Will work (if didnt have) (WAY 2:)
+        Person.prototype.nationality = "English";
+
+        // Display nationality 
+        document.getElementById("demo3").innerHTML =
+            "My father is " + myFather.nationality;
+
+        // Adding a Method to an Object
+        // Add a Name Method
+        myMother.changeName = function (name) {
+            this.lastName = name;
+        }
+        // Change Name
+        myMother.changeName("LMAO");
+        // Display fullName
+        document.getElementById("demo5").innerHTML =
+            "My mother's last name is " + myMother.lastName;
+
+        // Adding a Method to a Constructor
+        // You cannot add a new method to an object constructor function.
+        // This code will produce a TypeError:
+        //         Example
+        Person.changeName = function (name) { this.lastName = name; }
+        myMother.changeName("Doe");
+        //  TypeError: myMother.changeName is not a function
+
+
+        // Adding a new method must be done to the constructor function prototype:
+        Person.prototype.changeName = function (name) {
+            this.lastName = name;
+        }
+
+        // Change Name
+        myMother.changeName("BruhBruh");
+
+        // Display Name
+        document.getElementById("demo6").innerHTML =
+            "My mother's last name is " + myMother.lastName;
+    </script>
+    <hr>
+
+
+    <br><br>
+    <h1>Built-in JavaScript Constructors</h1>
+    <p id="dem7"></p>
+    <p id="demo8"></p>
+    <script>
+        // Display the Type
+        document.getElementById("dem7").innerHTML =
+            "<p>The typeof new Object() is " + typeof new Object() + "</p>" +
+            "<p>The typeof new Array() is " + typeof new Array() + "</p>" +
+            "<p>The typeof new Map() is " + typeof new Map() + "</p>" +
+            "<p>The typeof new Set() is " + typeof new Set() + "</p>" +
+            "<p>The typeof new Date() is " + typeof new Date() + "</p>" +
+            "<p>The typeof new RegExp() is " + typeof new RegExp() + "</p>" +
+            "<p>The typeof new Function() is " + typeof new Function() + "</p>" + "<hr>";
+
+        // Display the type of all
+        document.getElementById("demo8").innerHTML =
+            "<img src=tricks.png width=500px height=400px> " + 
+            '<p>The typeof "" is ' + typeof "" + '</p>' +
+            '<p>The typeof 10 is ' + typeof 10 + '</p>' +
+            '<p>The typeof false is ' + typeof false + '</p>' +
+            '<p>The typeof {} is ' + typeof {} + '</p>' +
+            '<p>The typeof [] is ' + typeof [] + '</p>' +
+            '<p>The typeof /()/ is ' + typeof /()/ + '</p>' +
+            '<p>The typeof function(){} is ' + typeof function () { } + '</p>';
+    </script>
+
+</body>
+
+</html>
