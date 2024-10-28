@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <!-- string length -->
+    <h2>String length: </h2>
+    <p>The length of the string is:</p>
+    <p id="demo"></p>
+    <script>
+        let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        document.getElementById("demo").innerHTML =
+            "intput: " + text + "<br>" +
+            "output: " + text.length;
+    </script>
+
+    <!-- return a string by position -->
+    <h2>The charAt() Method:</h2>
+    <p>The charAt() method returns the character at a given position/index in a string:</p>
+    <p id="demo1"></p>
+    <script>
+        var text1 = "HELLO WORLD";
+        document.getElementById("demo1").innerHTML =
+            "intput: " + text1 + "<br>" +
+            "output: " + text1.charAt(0);
+    </script>
+
+    <!-- return string char code by position -->
+    <h2>The charCodeAt() Method</h2>
+    <p>The charCodeAt() method returns the unicode of the character at a given position in a string:</p>
+    <p id="demo2"></p>
+    <script>
+        let text2 = "HELLO WORLD";
+        document.getElementById("demo2").innerHTML =
+            "intput: " + text2 + "<br>" +
+            "output: " + text2.charCodeAt(0);
+    </script>
+
+    <!-- returns the strings at a specified index -->
+    <h2>The at() Method</h2>
+    <p>The at() method returns an indexed element from a string:</p>
+    <p id="demo3"></p>
+    <script>
+        const name = "W3Schools";
+        let letter = name.at(2); //way 1
+        // let letter = name[2]; //way 2
+        document.getElementById("demo3").innerHTML = letter;
+    </script>
+
+    <!-- Property Access [ ] -->
+    <p>Property access on strings:</p>
+    <p>The first character in the string is:</p>
+    <p id="demo4"></p>
+    <script>
+        let text3 = "HELLO WORLD";
+        document.getElementById("demo4").innerHTML = text3[0];
+    </script>
+    
+</body>
+
+</html>

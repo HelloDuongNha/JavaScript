@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <!-- Strings as Objects -->
+    <p id="demo1"></p>
+
+    <script>
+        // x is a string
+        let x = "John";
+
+        // y is an object
+        let y = new String("John");
+
+        document.getElementById("demo1").innerHTML = "type of x: " +
+            typeof x +
+            "<br>" +
+            "type of y: " +
+            typeof y;
+    </script>
+
+    Do not create Strings objects.
+    The new keyword complicates the code and slows down execution speed.
+    String objects can produce unexpected results:
+
+    <h1>Never Create Strings as Objects</h1>
+    <p>Strings and objects cannot be safely compared.</p>
+    <h3>When using the == operator, x and y are equal:</h3>
+    <p id="demo2"></p>
+    <script>
+        document.getElementById("demo2").innerHTML = "\"John\" == String(\"John\")?:  " +
+            (x == y);
+    </script>
+
+    <h3>When using the === operator, x and y are not equal:</h3>
+    <p id="demo3"></p>
+    <script>
+        document.getElementById("demo3").innerHTML = "\"John\" === String(\"John\")?:  " + (x === y);
+    </script>
+
+    <h3>JavaScript objects cannot be compared.</h3>
+    <p id="demo4"></p>
+    <script>
+        let a = new String("John");  // x is an object
+        let b = new String("John");  // y is an object
+        document.getElementById("demo4").innerHTML = "String(\"John\") == String(\"John\")?:  " +  (a == b) + "<br>";
+        document.getElementById("demo4").innerHTML += "String(\"John\") === String(\"John\")?:  " +  (a === b);
+    </script>
+
+</body>
+
+</html>

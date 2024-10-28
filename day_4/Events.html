@@ -1,0 +1,30 @@
+<!-- 
+Here are some examples of HTML events:
+
+An HTML web page has finished loading
+An HTML input field was changed
+An HTML button was clicked 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JavaScript HTML Events</h1>
+    <h2>The onclick Attribute</h2>
+    <button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button>
+    <p id="demo"></p>
+
+    <p>Click the button to display the date.</p>
+    <button onclick="displayDate()">The time is?</button>
+    <script>
+        function displayDate() {
+            document.getElementById("demo1").innerHTML = Date();
+        }
+    </script>
+
+    <p id="demo1"></p>
+
+</body>
+
+</html>

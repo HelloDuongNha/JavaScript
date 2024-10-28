@@ -1,0 +1,175 @@
+<!-- 
+There are 3 methods for extracting a part of a string:
+slice(start, end)
+substring(start, end)
+substr(start, length) 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>JavaScript Strings</h1>
+    <h2>The slice() Method</h2>
+    <p>If you omit the second parameter, the method will slice out the rest of the string:</p>
+    <p id="demo"></p>
+    <p>If a parameter is negative, the position is counted from the end of the string:</p>
+    <p id="demo1"></p>
+    <p>This example slices out a portion of a string from position -12 to position -6:</p>
+    <p id="demo2"></p>
+    <script>
+        let text = "Apple, Banana, Kiwi";
+        let part = text.slice(7, 13);
+        document.getElementById("demo").innerHTML = part;
+        let part1 = text.slice(-12);
+        document.getElementById("demo1").innerHTML = part1;
+        let part2 = text.slice(-12, -6);
+        document.getElementById("demo2").innerHTML = part2;
+    </script>
+
+    <h2>JavaScript String substring()</h2>
+    <p>The substring() method extract a part of a string and returns the extracted parts in a new string:</p>
+    <p id="demo3"></p>
+
+    <script>
+        let str = "Apple, Banana, Kiwi";
+        let part3 = str.substring(7, 13);
+        document.getElementById("demo3").innerHTML = part3;
+    </script>
+
+    <h2>JavaScript String substr()</h2>
+    <p>substr() is similar to slice().</p>
+    <p>The substr() method extract a part of a string and returns the extracted parts in a new string:</p>
+    <p id="demo4"></p>
+
+    <p>If you omit the second parameter, substr() will slice out the rest of the string:</p>
+    <p id="demo5"></p>
+
+    <p>If the first parameter is negative, the position counts from the end of the string:</p>
+    <p id="demo6"></p>
+    <script>
+        let part4 = str.substr(7, 6);
+        document.getElementById("demo4").innerHTML = part4;
+
+        let part5 = str.substr(7);
+        document.getElementById("demo5").innerHTML = part5;
+
+        let part6 = str.substr(-4);
+        document.getElementById("demo6").innerHTML = part6;
+    </script>
+
+    <h2>Converting to Upper and Lower Case</h2>
+    <p>JavaScript String toUpperCase():</p>
+    <button onclick="uppercase()">upper case</button>
+    <button onclick="lowercase()">lowercase</button>
+    <p id="demo7">Hello World!</p>
+    <script>
+        function uppercase() {
+            let text = document.getElementById("demo7").innerHTML;
+            document.getElementById("demo7").innerHTML =
+                text.toUpperCase();
+        }
+        function lowercase() {
+            let text = document.getElementById("demo7").innerHTML;
+            document.getElementById("demo7").innerHTML =
+                text.toLowerCase();
+        }
+    </script>
+
+    <h2>The concat() Method</h2>
+    <p>The concat() method joins two or more strings:</p>
+    <p id="demo8"></p>
+    <script>
+        let text1 = "Hello";
+        let text2 = "World!";
+        let text3 = text1.concat("-", text2);
+        document.getElementById("demo8").innerHTML = text3;
+    </script>
+
+    <h2>The trim() Method</h2>
+    <p id="demo9"></p>
+    <script>
+        let text4 = "     Hello World!     ";
+        let text5 = text4.trim();
+
+        document.getElementById("demo9").innerHTML =
+            "Length text1 (before trimming) = " + text4.length + "<br>Length text2 (after trimming) = " + text5.length;
+    </script>
+
+    <h2>The trimEnd() Method</h2>
+    <p id="demo10"></p>
+    <script>
+        let text6 = "     Hello World!     ";
+        let text7 = text6.trimEnd();
+        document.getElementById("demo10").innerHTML =
+            "Length text1 = " + text6.length + "<br>Length text2 = " + text7.length;
+    </script>
+
+    <h2>The padStart() Method (like :.2f in python)</h2>
+    <p>The padStart() method pads a string from the start.</p>
+    <p>It pads the string with another string (multiple times) until it reaches a given length.</p>
+    <p id="demo11"></p>
+    <script>
+        let text8 = "5";
+        text8 = text8.padStart(4, "x");
+        document.getElementById("demo11").innerHTML = text8;
+    </script>
+    the same with padEnd() -> 5xxx
+
+    <h2>The repeat() Method</h2>
+    <p>repeat() returns a new string with a number of copies of a string:</p>
+    <p id="demo12"></p>
+    <p>P/S: repeat() is not supported in Internet Explorer.</p>
+
+    <script>
+        let text9 = "Hello world!";
+        let result = text9.repeat(2); //repeat 2 times
+        document.getElementById("demo12").innerHTML = result;
+    </script>
+
+    <h2>Replacing String Content</h2>
+    <p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+    <button onclick="replacing()">Try it</button>
+    <p id="demo13">Please visit Microsoft!</p>
+
+    <script>
+        function replacing() {
+            let text = document.getElementById("demo13").innerHTML;
+            document.getElementById("demo13").innerHTML =
+                text.replace("Microsoft", "W3Schools");
+        }
+        "/i To replace case insensitive"
+        // To replace case insensitive, use a regular expression with an / i flag(insensitive):
+
+        // Example
+        // let text = "Please visit Microsoft!";
+        // let newText = text.replace(/MICROSOFT/i, "W3Schools");
+    </script>
+
+    <h2>The replaceAll() Method</h2>
+    <p>ES2021 intoduced the string method replaceAll().</p>
+    <p id="demo14"></p>
+    <script>
+        let text10 = "I love cats. Cats are very easy to love. Cats are very popular."
+        // text10 = text10.replaceAll("Cats", "Dogs"); 
+        // text10 = text10.replaceAll("cats", "dogs");
+        text10 = text10.replace(/Cats/g, "Dogs"); //Regular Expression - Regex
+        text10 = text10.replace(/cats/g, "dogs");
+        // nghĩa là thay thế tất cả các xuất hiện như replace all luôn
+
+        document.getElementById("demo14").innerHTML = text10;
+    </script>
+
+    <h2>String split()</h2>
+    <p>Display the first array element, after a string split:</p>
+    <p id="demo15"></p>
+    <script>
+        let text11 = "a,b,c,d,e,f";
+        const myArray = text11.split(",");
+        document.getElementById("demo15").innerHTML = myArray[0];
+    </script>
+
+</body>
+
+</html>
